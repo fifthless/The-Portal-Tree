@@ -46,7 +46,7 @@ addLayer("iob", {
         11: {
             title: "Book Tree",
             description: "Start gaining book",
-            cost: new Decimal(10),
+            cost: new Decimal(2),
             unlocked() { return player[this.layer].unlocked }, // The upgrade is only visible when this is true
             
         },

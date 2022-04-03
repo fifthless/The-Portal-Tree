@@ -77,7 +77,7 @@ addLayer("b", {
         },
 
         14:{
-            title:"Portalize",
+            title:"Bridge",
             description:"Unlock Bridging in the layer IB",
             cost: new Decimal(50),
             unlocked(){ return hasUpgrade("b",13)},
