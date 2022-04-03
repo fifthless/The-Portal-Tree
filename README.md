@@ -4,33 +4,28 @@ Create your own tree (or non-tree) of prestige upgrades!
 
 ## -Changelogs-
 
-v0.6
-- added some Upgrade and milestone for "MS"
-- fixed some Upgrade bugs
-- balenced the game to 1000000
-
-v0.5.1
-- Remove some useless stuff
-- fixed some Upgrade bugs
-
-v0.5
-- balanced the game to 5000 read book
-- Added some upgrade
-- Clean up the code
-
 v0.4
-- Added some upgrade
-- Added a new LAYER "Mind Strengthen" -fixed some bugs
+- Changed "Upgrade" names to make it suitable
+- nerf out some of the upgrade to make it balanced
 
 v0.3
-- balanced the game to 1000 read book
-- Added some upgrade
-- fixed some bugs
+- Words changing and fixed
+- small balancing to the game
+- difference the Island of Book and it Currency "Book"
+
+v0.2.1
+- bug fixing
+- Easy upgrade and layer
 
 v0.2
-- Added A Layer
+- Added Some Layer
 - Added some update
 
 v0.1
 - Added random idea
 - Added stuff
+
+## Future Plans
+
+- Making a Layer to make the layer portal to choose into other dimension
+- Adding some Portal upgrade , And the Island of book and book will have more upgrade and will be differenced
