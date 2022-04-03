@@ -57,7 +57,7 @@ addLayer("b", {
         12:{
             title:"Book mineshaft",
             description:"Book increase your portal fragment gain",
-            cost: new Decimal(20),
+            cost: new Decimal(50),
             unlocked(){ return hasUpgrade("b",11)},
             effect() {
                 return player[this.layer].points.add(1).pow(0.01)
@@ -68,7 +68,7 @@ addLayer("b", {
         13:{
             title:"Adventuring the Island",
             description:"Book devide the cost of Island of book",
-            cost: new Decimal(30),
+            cost: new Decimal(300),
             unlocked(){ return hasUpgrade("b",12)},
             effect() {
                 return player[this.layer].points.add(1).pow(0.13)
@@ -79,7 +79,7 @@ addLayer("b", {
         14:{
             title:"Bridge",
             description:"Unlock Bridging in the layer IB",
-            cost: new Decimal(50),
+            cost: new Decimal(1000),
             unlocked(){ return hasUpgrade("b",13)},
             
         },
