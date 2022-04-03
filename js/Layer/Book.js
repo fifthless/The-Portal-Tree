@@ -31,7 +31,7 @@ addLayer("b", {
 
     gainMult() { // Calculate the multiplier for main currency from bonuses
         let mult = new Decimal(1)
-    
+        if (hasUpgrade("b", 11)) mult = mult.times(2)
        
         return mult
     },
@@ -48,7 +48,7 @@ addLayer("b", {
     upgrades: {
         11: {
             title: "Book Reader",
-            description: "Double your portal fragment gain",
+            description: "Double your book gain",
             cost: new Decimal(10),
             unlocked() { return player[this.layer].unlocked }, // The upgrade is only visible when this is true
             
