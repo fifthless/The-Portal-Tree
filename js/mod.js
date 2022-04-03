@@ -1,57 +1,30 @@
 let modInfo = {
 	name: "The Portal Tree",
-	id: "school",
+	id: "portal",
 	author: "fifthless",
-	pointsName: "Read Books",
-	modFiles: ["Layer/knowledge.js","Layer/mind_strengthen.js", "tree.js","Layer/draw.js"],
+	pointsName: "Portal fragment",
+	modFiles: ["Layer/Island_of_book.js","Layer/Portal_door.js", "tree.js","Layer/Book.js","Layer/achievement.js"],
 
 	discordName: "",
 	discordLink: "",
-	initialStartPoints: new Decimal (100000000), // Used for hard resets and new players
+	initialStartPoints: new Decimal (10), // Used for hard resets and new player
 	offlineLimit: 1,  // In hours
 }
 
 // Set your version in num and name
 let VERSION = {
-	num: "0.6 Welcome to Jake's Library",
+	num: "0.2 Portal to Island",
 	name: "",
 }
 
 let changelog = `<h1><span style="color:blue">Changelog:</span></h1><br>
 <br>
 
-	<h3>v0.6</h3><br>
-		-added some Upgrade and milestone for "MS"<br>
-		-fixed some Upgrade bugs<br>
-		-balenced the game to 1000000<br>
-		<br>
-
-	<h3>v0.5.1</h3><br>
-		-Remove some useless stuff<br>
-		-fixed some Upgrade bugs<br>
-		<br>
-
-	<h3>v0.5</h3><br>
-		-balanced the game to 5000 read book<br>
-		-Added some upgrade<br>
-		-Clean up the code<br>
-		<br>
-
-	<h3>v0.4</h3><br>
-		-Added some upgrade<br>
-		-Added a new LAYER "Mind Strengthen"
-		-fixed some bugs<br>
-		<br>
-
-	<h3>v0.3</h3><br>
-		-balanced the game to 1000 read book<br>
-		-Added some upgrade<br>
-		-fixed some bugs<br>
-		<br>
-
 	<h3>v0.2</h3><br>
-		-Added A Layer<br>
-		-Added some update<br>
+		- Added a main Layer - “Island of book” , sub-layer - “book” and achievement layer<br>
+		- Added some upgrade<br>
+		- Bugs fixing
+		- balanced the game to 1000000 Portal Fragment
 		<br>
 
 	<h3>v0.1</h3><br>
@@ -70,7 +43,7 @@ function getStartPoints(){
 
 // Determines if it should show points/sec
 function canGenPoints(){
-	return hasUpgrade("k",11)
+	return true
 }
 
 // Calculate points/sec!
@@ -79,11 +52,11 @@ function getPointGen() {
 		return new Decimal(0)
 
 	let gain = new Decimal(1)
-	if (hasUpgrade("k", 12)) gain = gain.times(2)
-	if (hasUpgrade('k', 13)) gain = gain.times(upgradeEffect('k', 13))
-	if (hasUpgrade("m", 11)) gain = gain.times(upgradeEffect("m", 11))
-	if (hasUpgrade('m', 13)) gain = gain.times(upgradeEffect('m', 13))
-	if (hasUpgrade('d', 11)) gain = gain.times(upgradeEffect('d', 11))
+		if (hasUpgrade("p", 11)) gain = gain.times(2)
+		if (hasUpgrade('p', 12)) gain = gain.times(upgradeEffect('p', 12))
+		if (hasUpgrade("p", 13)) gain = gain.times(upgradeEffect("p", 13))
+		if (hasUpgrade("b", 12)) gain = gain.times(upgradeEffect("b", 12))
+
 
 	return gain
 }
