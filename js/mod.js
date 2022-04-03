@@ -25,6 +25,10 @@ let changelog = `<h1><span style="color:blue">Changelog:</span></h1><br>
 	<br>
 
 	<h3>v0.2.3</h3><br>
+		- Added Upgrade <span style="color:green">Book Tree</span><br>
+		<br>
+
+	<h3>v0.2.3</h3><br>
 		- fixed Upgrade <span style="color:green">Adventuring the Island</span><br>
 		<br>
 
