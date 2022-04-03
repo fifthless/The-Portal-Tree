@@ -41,9 +41,9 @@ addLayer("b", {
 
     row: 1, // Row the layer is in on the tree (0 is the first row)
     
-    layerShown(){ if (hasAchievement("ac",13)) return true},
+    layerShown(){ if (hasUpgrade("iob",11)) return true},
 
-    passiveGeneration(){ if (hasAchievement("ac",13)) return true},
+    passiveGeneration(){ if (hasUpgrade("iob",11)) return true},
 
     upgrades: {
         11: {
@@ -77,8 +77,8 @@ addLayer("b", {
         },
 
         14:{
-            title:"Portal Door",
-            description:"Unlock Your First Portal Destination",
+            title:"Portalize",
+            description:"Unlock Bridging in the layer IB",
             cost: new Decimal(50),
             unlocked(){ return hasUpgrade("b",13)},
             

@@ -42,7 +42,40 @@ addLayer("iob", {
     layerShown()
      { if (hasAchievement("ac",13)) return true},
 
-     
+     upgrades: {
+        11: {
+            title: "Book Tree",
+            description: "Start gaining book",
+            cost: new Decimal(10),
+            unlocked() { return player[this.layer].unlocked }, // The upgrade is only visible when this is true
+            
+        },
+     },
 
+
+
+     tabFormat: {
+        "Upgrades": {
+                content: [
+                    "main-display",
+                    ["prestige-button", "", function (){ return hasUpgrade("iob", 21) ? {'display': 'none'} : {}}],
+                "blank", 
+                ["upgrades", [1,2,3,4,5,6,7]],
+            ],
+                
+        
+        },
+        "Bridging": {
+            content: [
+                    "main-display",
+                    "blank",
+                    "milestones",
+            ],
+            unlocked(){
+                    return true
+            },
+            },
+        }
+     
  
 })

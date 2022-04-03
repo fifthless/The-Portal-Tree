@@ -13,18 +13,39 @@ let modInfo = {
 
 // Set your version in num and name
 let VERSION = {
-	num: "0.2 Portal to Island",
+	num: "0.2.3 Portal to the Island",
 	name: "",
 }
 
 let changelog = `<h1><span style="color:blue">Changelog:</span></h1><br>
 <br>
+	<b>Upgrade - <span style="color:green">Green</span><b><br>
+	<b>Layer - <span style="color:red">Red</span><b><br>
+	<b>Balancing - <span style="color:yellow">Yellow</span><b><br>
+	<br>
 
+	<h3>v0.2.3</h3><br>
+		- fixed Upgrade <span style="color:green">Adventuring the Island</span><br>
+		<br>
+
+	<h3>v0.2.3</h3><br>
+		- make some various change<br>
+		<br>
+
+	<h3>v0.2.2</h3><br>
+		- Words fixing<br>
+		- Upgrade error fixing<br>
+		<br>
+
+ 	<h3>v0.2.1</h3><br>
+		- Added Upgrade<br>
+		<br>
+		
 	<h3>v0.2</h3><br>
-		- Added a main Layer - “Island of book” , sub-layer - “book” and achievement layer<br>
+		- Added a main Layer - <span style="color:red">Island of book</span> , sub-layer - <span style="color:red">book</span> and <span style="color:red">achievement</span> layer<br>
 		- Added some upgrade<br>
-		- Bugs fixing
-		- balanced the game to 1000000 Portal Fragment
+		- Bugs fixing<br>
+		- balanced the game to <span style="color:yellow">1e4 Portal Fragment</span><br>
 		<br>
 
 	<h3>v0.1</h3><br>
