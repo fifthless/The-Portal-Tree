@@ -19,7 +19,13 @@ addLayer("p", {
     baseAmount() {return player.points}, // Get the current amount of baseResource
     
     type: "normal", // normal: cost to gain currency depends on amount gained. static: cost depends on how much you already have
-    
+
+    getResetGain(){ 
+        let ret = player.points.times(0.1).times(tmp.p.gainMult)
+
+        return ret.max(0)
+        },
+
     //CURRENCY
     exponent: 0.5, // Prestige currency exponent
 
@@ -39,6 +45,8 @@ addLayer("p", {
     ],
     
     layerShown(){return true},
+
+    passiveGeneration(){ if (hasMilestone("iob",1)) return true},
 
     upgrades: {
         11: {
@@ -85,12 +93,20 @@ addLayer("p", {
                 content: [
                     "main-display",
                     ["prestige-button", "", function (){ return hasUpgrade("iob", 21) ? {'display': 'none'} : {}}],
+                    ["display-text",
+                    function(){
+                            if (player.shiftAlias) return "Your best Book is " + format(player.p.best)
+                            if (hasMilestone("iob",1)) {return "You are gaining " + format(tmp.p.getResetGain) + " Portal per second"}}],
                 "blank", 
                 ["upgrades", [1,2,3,4,5,6,7]],
             ],
                 
         
         }
-    }
+    },
 
+    autoUpgrade() {if (hasMilestone("iob",0)) return true}
+
+    
 })
+

@@ -60,7 +60,7 @@ addLayer("b", {
             cost: new Decimal(50),
             unlocked(){ return hasUpgrade("b",11)},
             effect() {
-                return player[this.layer].points.add(1).pow(0.01)
+                return player[this.layer].points.add(1).pow(0.25)
             },
             effectDisplay() { return format(upgradeEffect(this.layer, this.id))+"x" }, // Add formatting to the effect
         },
@@ -81,6 +81,14 @@ addLayer("b", {
             description:"Unlock Bridging in the layer IB",
             cost: new Decimal(1000),
             unlocked(){ return hasUpgrade("b",13)},
+            
+        },
+
+        21:{
+            title:"Island inflation",
+            description:"Unlock more upgrade in Island of Book",
+            cost: new Decimal(10000),
+            unlocked(){ return hasUpgrade("b",14)},
             
         },
     },

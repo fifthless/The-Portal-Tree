@@ -13,7 +13,7 @@ let modInfo = {
 
 // Set your version in num and name
 let VERSION = {
-	num: "0.2.3 Portal to the Island",
+	num: "0.3 Portal to the Island",
 	name: "",
 }
 
@@ -23,6 +23,17 @@ let changelog = `<h1><span style="color:blue">Changelog:</span></h1><br>
 	<b>Layer - <span style="color:red">Red</span><b><br>
 	<b>Balancing - <span style="color:yellow">Yellow</span><b><br>
 	<br>
+
+	<h3>v0.3</h3><br>
+		- balanced the game to <span style="color:yellow">1e11 Portal Fragment</span><br>
+		- Added some milestone for autobuy<br>
+		- Added some upgrade<br>
+		<br>
+
+
+	<h3>v0.2.4</h3><br>
+		- balanced the game to <span style="color:yellow">1e9 Portal Fragment</span><br>
+		<br>
 
 	<h3>v0.2.3</h3><br>
 		- Added Upgrade <span style="color:green">Book Tree</span><br>
@@ -74,7 +85,7 @@ function canGenPoints(){
 // Calculate points/sec!
 function getPointGen() {
 	if(!canGenPoints())
-		return new Decimal(0)
+		return new Decimal(1)
 
 	let gain = new Decimal(1)
 		if (hasUpgrade("p", 11)) gain = gain.times(2)
@@ -96,7 +107,7 @@ var displayThings = [
 
 // Determines when the game "ends"
 function isEndgame() {
-	return player.points.gte(new Decimal("1000000"))
+	return player.points.gte(new Decimal("1e9"))
 }
 
 

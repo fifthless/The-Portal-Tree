@@ -42,12 +42,36 @@ addLayer("iob", {
     layerShown()
      { if (hasAchievement("ac",13)) return true},
 
+     milestones: {
+        0: {
+            requirementDescription: "<b>Stabillizer</b><br>5 Island of Book",
+            effectDescription: "You can autobuy the portal upgrade",
+            done() { return player.iob.points.gte(5) },
+
+        },
+
+        1: {
+            requirementDescription: "<b>Portalizer</b><br>10 Island of Book",
+            effectDescription: "You can passively gain Portal",
+            done() { return player.iob.points.gte(10) },
+            
+        },
+     },
+    
      upgrades: {
         11: {
             title: "Book Tree",
             description: "Start gaining book",
             cost: new Decimal(2),
             unlocked() { return player[this.layer].unlocked }, // The upgrade is only visible when this is true
+            
+        },
+
+        12:{
+            title:"Portalizer",
+            description:"Unlock Bridging in the layer IB",
+            cost: new Decimal(5),
+            unlocked(){ return hasUpgrade("b",13)},
             
         },
      },
@@ -62,20 +86,26 @@ addLayer("iob", {
                 "blank", 
                 ["upgrades", [1,2,3,4,5,6,7]],
             ],
-                
-        
         },
+
+        "Milestone": {
+                content: [
+                    "main-display",
+                    "blank",
+                    "milestones",
+            ],   
+                unlocked(){return true},
+              
+        },
+        
         "Bridging": {
             content: [
                     "main-display",
                     "blank",
-                    "milestones",
+                    "",
             ],
-            unlocked(){
-                    return true
+            unlocked(){ return hasUpgrade("b",21)},
             },
-            },
-        }
-     
+     }
  
 })
