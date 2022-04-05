@@ -13,7 +13,7 @@ let modInfo = {
 
 // Set your version in num and name
 let VERSION = {
-	num: "0.3 Portal to the Island",
+	num: "0.3.1 Portal to the Island",
 	name: "",
 }
 
@@ -23,6 +23,12 @@ let changelog = `<h1><span style="color:blue">Changelog:</span></h1><br>
 	<b>Layer - <span style="color:red">Red</span><b><br>
 	<b>Balancing - <span style="color:yellow">Yellow</span><b><br>
 	<br>
+
+	<h3>v0.3.1</h3><br>
+		- balanced some upgrade<br>
+		- added some achievement<br>
+		- Added some upgrade<br>
+		<br>
 
 	<h3>v0.3</h3><br>
 		- balanced the game to <span style="color:yellow">1e20 Portal Fragment</span><br>
