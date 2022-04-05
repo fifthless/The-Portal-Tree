@@ -25,7 +25,7 @@ let changelog = `<h1><span style="color:blue">Changelog:</span></h1><br>
 	<br>
 
 	<h3>v0.3</h3><br>
-		- balanced the game to <span style="color:yellow">1e11 Portal Fragment</span><br>
+		- balanced the game to <span style="color:yellow">1e20 Portal Fragment</span><br>
 		- Added some milestone for autobuy<br>
 		- Added some upgrade<br>
 		<br>
@@ -107,7 +107,7 @@ var displayThings = [
 
 // Determines when the game "ends"
 function isEndgame() {
-	return player.points.gte(new Decimal("1e9"))
+	return player.points.gte(new Decimal("1e20"))
 }
 
 

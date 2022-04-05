@@ -21,9 +21,9 @@ addLayer("p", {
     type: "normal", // normal: cost to gain currency depends on amount gained. static: cost depends on how much you already have
 
     getResetGain(){ 
-        let ret = player.points.times(0.1).times(tmp.p.gainMult)
+        let ret = player.points.times(1).times(tmp.p.gainMult)
 
-        return ret.max(0)
+        return ret.max(1)
         },
 
     //CURRENCY
@@ -41,7 +41,7 @@ addLayer("p", {
     row: 0, // Row the layer is in on the tree (0 is the first row)
     
     hotkeys: [
-        {key: "p", description: "k: Reset for Portal Door", onPress(){if (canReset(this.layer)) doReset(this.layer)}},
+        {key: "p", description: "p: Reset for Portal Door", onPress(){if (canReset(this.layer)) doReset(this.layer)}},
     ],
     
     layerShown(){return true},
@@ -63,7 +63,7 @@ addLayer("p", {
             cost: new Decimal(5),
             unlocked(){ return hasUpgrade("p",11)},
             effect() {
-                return player[this.layer].points.add(1).pow(0.6)
+                return player[this.layer].points.add(1).pow(0.4)
             },
             effectDisplay() { return format(upgradeEffect(this.layer, this.id))+"x" }, // Add formatting to the effect
         },

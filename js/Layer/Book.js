@@ -1,7 +1,7 @@
 addLayer("b", {
     name: "Book", // This is optional, only used in a few places, If absent it just uses the layer id.
     symbol: "B", // This appears on the layer's node. Default is the id with the first letter capitalized
-    position: 1, // Horizontal position within a row. By default it uses the layer id and sorts in alphabetical order
+    position: 2, // Horizontal position within a row. By default it uses the layer id and sorts in alphabetical order
     branches : ["iob"],
     startData() { return {
         unlocked: true,
@@ -77,6 +77,14 @@ addLayer("b", {
         },
 
         14:{
+            title:"Island inflation",
+            description:"Unlock more upgrade in Island of Book",
+            cost: new Decimal(10000),
+            unlocked(){ return hasUpgrade("b",13)},
+            
+        }, 
+        
+        21:{
             title:"Bridge",
             description:"Unlock Bridging in the layer IB",
             cost: new Decimal(1000),
@@ -84,13 +92,6 @@ addLayer("b", {
             
         },
 
-        21:{
-            title:"Island inflation",
-            description:"Unlock more upgrade in Island of Book",
-            cost: new Decimal(10000),
-            unlocked(){ return hasUpgrade("b",14)},
-            
-        },
     },
  
     tabFormat: {

@@ -21,7 +21,7 @@ addLayer("ac", {
     achievementPopups: true,
     
     achievements : {
-                11: {
+        11: {
                 name: "Fragment seeker",
                 done() {return hasUpgrade("p", 11)}, // This one is a freebie
                 goalTooltip: "Buy upgrade Fragment Collector", // Shows when achievement is not completed
@@ -31,24 +31,35 @@ addLayer("ac", {
                         },
                 },
                 
-                12: {
-                        name: "Fragment seeker",
-                        done() {return hasUpgrade("p", 13)}, // This one is a freebie
-                        goalTooltip: "Buy upgrade Portal minshaft and Fragment mineshaft", // Shows when achievement is not completed
-                        doneTooltip: "Buy upgrade Portal minshaft and Fragment mineshaft", // Showed when the achievement is completed
-                        onComplete() {
-                                player[this.layer].points = player[this.layer].points.add(1);
-                                },
+        12: {
+                name: "Fragment miner",
+                done() {return hasUpgrade("p", 13)}, // This one is a freebie
+                goalTooltip: "Buy upgrade Portal minshaft and Fragment mineshaft", // Shows when achievement is not completed                        doneTooltip: "Buy upgrade Portal minshaft and Fragment mineshaft", // Showed when the achievement is completed
+                onComplete() {
+                        player[this.layer].points = player[this.layer].points.add(1);
                         },
+               },
 
-                13: {
+        13: {
                 name: "Door To Nowhere",
                 done() {return hasUpgrade("p", 14)}, // This one is a freebie
-                goalTooltip: "Buy upgrade 11 in P.", // Shows when achievement is not completed
-                doneTooltip: "Buy upgrade ", // Showed when the achievement is completed
+                goalTooltip: "Buy upgrade Portal Door.", // Shows when achievement is not completed
+                doneTooltip: "Buy upgrade Portal Door", // Showed when the achievement is completed
                 onComplete() {
                         player[this.layer].points = player[this.layer].points.add(1);
                         },
                 },
+
+        14: {
+                name: "Books?",
+                done() {return hasUpgrade("iob", 11)}, // This one is a freebie
+                goalTooltip: "Buy upgrade Book Tree.", // Shows when achievement is not completed
+                doneTooltip: "Buy upgrade Book Tree", // Showed when the achievement is completed
+                onComplete() {
+                        player[this.layer].points = player[this.layer].points.add(1);
+                        },
+                },
+
+        
         }
 })
