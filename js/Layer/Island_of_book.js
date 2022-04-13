@@ -68,10 +68,38 @@ addLayer("iob", {
         },
 
         12:{
-            title:"Portalizer",
-            description:"Unlock Bridging in the layer IB",
+            title:"Space-in",
+            description:"Unlock even more Portal upgrade",
             cost: new Decimal(5),
             unlocked(){ return hasUpgrade("b",13)},
+            
+        },
+
+        13:{
+            title:"Bookling",
+            description:"Unlock Buyable for Book",
+            cost: new Decimal(10),
+            unlocked(){ return hasUpgrade("iob",12)},
+            
+        },
+
+        14:{
+            title:"Moon-light",
+            description:"Book can increase book gain",
+            cost: new Decimal(20),
+            unlocked(){ return hasUpgrade("iob",13)},
+            effect() {
+                return player.b.points.add(1).pow(0.15)
+            },
+            effectDisplay() { return format(upgradeEffect(this.layer, this.id))+"x" }, // Add formatting to the effect
+            
+        },
+
+        15:{
+            title:"Bridge",
+            description:"Unlock Bridging in the layer IB",
+            cost: new Decimal(100),
+            unlocked(){ return hasUpgrade("iob",14)},
             
         },
      },
@@ -104,7 +132,7 @@ addLayer("iob", {
                     "blank",
                     "",
             ],
-            unlocked(){ return hasUpgrade("b",21)},
+            unlocked(){ return hasUpgrade("iob",15)},
             },
      }
  

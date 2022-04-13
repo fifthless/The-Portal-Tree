@@ -20,17 +20,18 @@ addLayer("p", {
     
     type: "normal", // normal: cost to gain currency depends on amount gained. static: cost depends on how much you already have
 
-    getResetGain(){ 
-        let ret = player.points.times(1).times(tmp.p.gainMult)
+    getResetGain(){
+        let ret = player.points.times(0.05).times(tmp.b.gainMult)
 
-        return ret.max(1)
-        },
+        return ret.max(0)
+    },
 
     //CURRENCY
     exponent: 0.5, // Prestige currency exponent
 
     gainMult() { // Calculate the multiplier for main currency from bonuses
         let mult = new Decimal(1)
+        if (hasUpgrade("p", 14)) mult = mult.times(upgradeEffect("p", 14))
         
         return mult
     },
@@ -80,10 +81,37 @@ addLayer("p", {
         },
 
         14:{
-            title:"Portal Door",
-            description:"Unlock Your First Portal Destination",
+            title:"Portalize",
+            description:"Portal increase portal gain",
             cost: new Decimal(20),
             unlocked(){ return hasUpgrade("p",13)},
+            effect() {
+                return player.p.points.add(1).pow(0.3)
+            },
+            effectDisplay() { return format(upgradeEffect(this.layer, this.id))+"x" }, // Add formatting to the effect
+        },
+
+        15:{
+            title:"Portal Door",
+            description:"Unlock Your First Portal Destination",
+            cost: new Decimal(50),
+            unlocked(){ return hasUpgrade("p",14)},
+            
+        },
+
+        21:{
+            title:"XXX",
+            description:"XXX",
+            cost: new Decimal(20),
+            unlocked(){ return hasUpgrade("iob",12)},
+            
+        },
+
+        22:{
+            title:"XXX",
+            description:"XXX",
+            cost: new Decimal(20),
+            unlocked(){ return hasUpgrade("p",21)},
             
         },
     },
@@ -105,7 +133,8 @@ addLayer("p", {
         }
     },
 
-    autoUpgrade() {if (hasMilestone("iob",0)) return true}
+    autoUpgrade() {if (hasMilestone("iob",0)) return true},
+    prestigeButtonText(){return "<b>+</b>" + format(tmp.p.getResetGain) + " Portal"}
 
     
 })

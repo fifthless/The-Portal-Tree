@@ -21,7 +21,7 @@ addLayer("b", {
     type: "normal", // normal: cost to gain currency depends on amount gained. static: cost depends on how much you already have
     
     getResetGain(){ 
-        let ret = player.iob.points.times(1).times(tmp.b.gainMult)
+        let ret = player.iob.points.times(1.2).times(tmp.b.gainMult)
 
         return ret.max(0)
         },
@@ -32,7 +32,9 @@ addLayer("b", {
     gainMult() { // Calculate the multiplier for main currency from bonuses
         let mult = new Decimal(1)
         if (hasUpgrade("b", 11)) mult = mult.times(2)
-       
+        mult = mult.times(tmp.b.buyables[11].effect)
+        if (hasUpgrade("iob", 14)) mult = mult.times(upgradeEffect("iob", 14))
+
         return mult
     },
     gainExp() { // Calculate the exponent on main currency from bonuses
@@ -60,7 +62,10 @@ addLayer("b", {
             cost: new Decimal(50),
             unlocked(){ return hasUpgrade("b",11)},
             effect() {
-                return player[this.layer].points.add(1).pow(0.25)
+                eff = player[this.layer].points.add(1).pow(0.25)
+                if (hasUpgrade("b", 15)) eff = eff.times(upgradeEffect("b", 15))
+                
+                return eff    
             },
             effectDisplay() { return format(upgradeEffect(this.layer, this.id))+"x" }, // Add formatting to the effect
         },
@@ -84,14 +89,35 @@ addLayer("b", {
             
         }, 
         
-        21:{
-            title:"Bridge",
-            description:"Unlock Bridging in the layer IB",
+        15:{
+            title:"Thinker",
+            description:"Book make “Book mineshaft” stronger",
             cost: new Decimal(1000),
             unlocked(){ return hasUpgrade("b",13)},
+            effect() {
+                return player[this.layer].points.add(1).pow(0.1)
+            },
+            effectDisplay() { return format(upgradeEffect(this.layer, this.id))+"x" }, // Add formatting to the effect
             
         },
 
+    },
+
+    buyables: {
+        11: {
+            title() {return "Book-Worm"},
+            cost(x) { return new Decimal(100).times(x-100).times(x^0.1) },
+            display() { return "Every Book-Worm multiplies book gain by 1.2 plus and extra 1<br>Currently: " + format(tmp.b.buyables[11].effect) + "<br>bought:" + format(getBuyableAmount("b", 11)) + "<br> Cost: " + format(this.cost(getBuyableAmount("b", 11))) + " book"},
+            canAfford() { return player[this.layer].points.gte(this.cost()) },
+            buy() {
+                player[this.layer].points = player[this.layer].points.sub(this.cost())
+                setBuyableAmount(this.layer, this.id, getBuyableAmount(this.layer, this.id).add(1))
+            },
+            effect(){
+                eff = new Decimal(1)
+                eff = eff.add(getBuyableAmount("b", 11)*1.2)
+                return eff}
+        },
     },
  
     tabFormat: {
@@ -109,6 +135,15 @@ addLayer("b", {
             ]       
     
         },
+
+        "Buyables":{
+            content:[
+                "main-display",
+                "blank",
+                "buyables",
+
+            ]
+        }
     }
     
         

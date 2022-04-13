@@ -13,16 +13,24 @@ let modInfo = {
 
 // Set your version in num and name
 let VERSION = {
-	num: "0.3.1 Portal to the Island",
+	num: "0.4 Portal to the Island",
 	name: "",
 }
 
-let changelog = `<h1><span style="color:blue">Changelog:</span></h1><br>
+let changelog = `<h1>Changelog:</h1><br>
 <br>
-	<b>Upgrade - <span style="color:green">Green</span><b><br>
-	<b>Layer - <span style="color:red">Red</span><b><br>
-	<b>Balancing - <span style="color:yellow">Yellow</span><b><br>
+	<b>Layer</b> - <span style="color:red">Red</span><br>
+	<b>Balancing</b> - <span style="color:yellow">Yellow</span><br>
+	<b>Upgrade</b> - <span style="color:green">Green</span><br>
+	<b>Buyable</b> - <span style="color:blue">Blue</span><br>
 	<br>
+
+	<h3>v0.4</h3><br>
+		- <span style="color:yellow">balancing</span> ~<br>
+		- added some <span style="color:green">upgrade</span><br>
+		- added a <span style="color:blue">buyable</span> for book<br>
+		- redoing most of the effect and replacing the <span style="color:green">upgrades</span><br>
+		<br>
 
 	<h3>v0.3.1</h3><br>
 		- balanced some upgrade<br>
