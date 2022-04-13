@@ -42,7 +42,7 @@ addLayer("ac", {
 
         13: {
                 name: "Door To Nowhere",
-                done() {return hasUpgrade("p", 14)}, // This one is a freebie
+                done() {return hasUpgrade("p", 15)}, // This one is a freebie
                 goalTooltip: "Buy upgrade Portal Door.", // Shows when achievement is not completed
                 doneTooltip: "Buy upgrade Portal Door", // Showed when the achievement is completed
                 onComplete() {
