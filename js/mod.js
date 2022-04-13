@@ -13,7 +13,7 @@ let modInfo = {
 
 // Set your version in num and name
 let VERSION = {
-	num: "0.4 Portal to the Island",
+	num: "0.4 Islandia",
 	name: "",
 }
 
