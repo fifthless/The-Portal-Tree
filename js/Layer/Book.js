@@ -76,7 +76,7 @@ addLayer("b", {
             cost: new Decimal(300),
             unlocked(){ return hasUpgrade("b",12)},
             effect() {
-                return player[this.layer].points.add(1).pow(0.13)
+                return player[this.layer].points.add(1).pow(0.05)
             },
             effectDisplay() { return format(upgradeEffect(this.layer, this.id))+"x" }, // Add formatting to the effect
         },
@@ -106,7 +106,7 @@ addLayer("b", {
     buyables: {
         11: {
             title() {return "Book-Worm"},
-            cost(x) { return new Decimal(100).times(x-100).times(x^0.1) },
+            cost(x) { return new Decimal(100).times(x-10).times(x^0.001) },
             display() { return "Every Book-Worm multiplies book gain by 1.2 plus and extra 1<br>Currently: " + format(tmp.b.buyables[11].effect) + "<br>bought:" + format(getBuyableAmount("b", 11)) + "<br> Cost: " + format(this.cost(getBuyableAmount("b", 11))) + " book"},
             canAfford() { return player[this.layer].points.gte(this.cost()) },
             buy() {

@@ -41,6 +41,9 @@ addLayer("iob", {
     
     layerShown()
      { if (hasAchievement("ac",13)) return true},
+    canBuyMax()
+     { if (hasMilestone("iob",2)) return true},
+    
 
      milestones: {
         0: {
@@ -54,6 +57,13 @@ addLayer("iob", {
             requirementDescription: "<b>Portalizer</b><br>10 Island of Book",
             effectDescription: "You can passively gain Portal",
             done() { return player.iob.points.gte(10) },
+            
+        },
+
+        2: {
+            requirementDescription: "<b>Viewer</b><br>50 Island of Book",
+            effectDescription: "You can buy max Island of books",
+            done() { return player.iob.points.gte(50) },
             
         },
      },
